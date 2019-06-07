@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import Chip from '@material-ui/core/Chip';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -13,6 +14,7 @@ const useStyles = makeStyles(theme => ({
   },
   flex: {
     display: 'flex',
+    alignItems:'center;'
   },
   topicsWindow: {
     width: '30%',
@@ -22,6 +24,7 @@ const useStyles = makeStyles(theme => ({
   chatWindow: {
     width: '70%',
     height: '300px',
+    padding: '20px',
   },
   chatboxWindow: {
     width: '85%',
@@ -58,7 +61,16 @@ export default function Dashboard () {
             </List>
           </div>
           <div className={classes.chatWindow}>
-
+              {
+                [{ from: 'user', msg: 'hello' }].map((chat, i) => (
+                  <div className={classes.flex} key={i}>
+                    <Chip label={chat.from} className={classes.chip} />
+                    <Typography variant='p' component="h5">
+                      {chat.msg}
+                    </Typography>
+                  </div>
+                ))
+              }
           </div>
         </div>
 
