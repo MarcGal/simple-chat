@@ -40,6 +40,8 @@ export default function Dashboard () {
 
   const classes = useStyles();
 
+  const [textValue, changeTextValue ] = React.useState('');
+
   return (
 
     <div>
@@ -80,8 +82,8 @@ export default function Dashboard () {
           <TextField
             label="Send a chat"
             className={classes.chatbox}
-            // value={values.name}
-            // onChange={handleChange('name')}
+            value={textValue}
+            onChange={ e => changeTextValue(e.target.value)}
           />
           <Button variant="contained" color="primary" className={classes.button}>
             Send
