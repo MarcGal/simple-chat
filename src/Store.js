@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CTX = React.createContext();
+export const CTX = React.createContext();
 
 const initState = {
   general: [
@@ -31,7 +31,7 @@ function reducer (state, action) {
   }
 }
 
-export default function Store (props) {
+export default function Store(props) {
 
   const reducerHook = React.useReducer(reducer, initState )
 
