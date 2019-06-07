@@ -2,6 +2,9 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -14,6 +17,7 @@ const useStyles = makeStyles(theme => ({
   topicsWindow: {
     width: '30%',
     height: '300px',
+    borderRight: '1px solid black',
   },
   chatWindow: {
     width: '70%',
@@ -42,8 +46,22 @@ export default function Dashboard () {
           Topic
         </Typography>
         <div className={classes.flex}>
+          <div className={classes.topicsWindow}>
+            <List>
+              {
+                ['Topic'].map(topic => (
+                  <ListItem key={topic} button>
+                     <ListItemText primary={topic} />
+                  </ListItem>
+                ))
+              }
+            </List>
+          </div>
+          <div className={classes.chatWindow}>
 
+          </div>
         </div>
+
         <div  className={classes.flex}>
           
         </div>
